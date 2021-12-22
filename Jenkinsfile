@@ -9,9 +9,10 @@ node {
     }
      
     stage('Nexus') {
-        nexusArtifactUploader artifacts: [[artifactId: 'demo', classifier: '', file: 'target/jenkins-1.0.-SNAPSHOT.jar', type: 'jar']], 
-            credentialsId: 'jenkins', groupId: 'com.example', nexusUrl: 'localhost:8110', nexusVersion: 'nexus3', 
-            protocol: 'http', repository: 'nexus-repo', version: '1.0-SNAPSHOT'
+        nexusArtifactUploader artifacts: [[artifactId: 'spring-boot-starter-parent', classifier: '', file: 'target/jenkins-1.0.-SNAPSHOT.jar', type: 'jar']], credentialsId: 'nexus', groupId: 'org.springframework.boot',
+            nexusUrl: 'localhost:8110', 
+            nexusVersion: 'nexus3', protocol: 'http', 
+            repository: 'nexusdeploymentrepo', version: '2.2.3.RELEASE'
     }
     
     stage('ansible') {
